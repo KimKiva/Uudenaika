@@ -17,7 +17,7 @@
                 </a>
                 <p class="text-gray-500 text-sm">{{ $post->published_at }}</p>
             </div>
-            <a class="text-xl font-bold text-gray-900">{{ $post->title }}</a>
+            <a href="#" class="text-xl font-bold text-gray-900">{{ $post->title }}</a>
         </div>
 
     </div>
