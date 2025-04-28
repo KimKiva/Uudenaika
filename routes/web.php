@@ -4,7 +4,7 @@ use App\Http\Controllers\AngelCardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 Route::get('/api/angel-card', [AngelCardController::class, 'draw']);
 
