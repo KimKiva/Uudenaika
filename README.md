@@ -1,66 +1,125 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Uudenaika Laravel-nettiaplikaatio Dokumentaatio
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> Huom! Tämän ohjeistuksen toimivuus edellyttää, että kaikki tarvittavat riippuvuudet, ympäristöt ja ohjelmistot (kuten PHP, Composer ja Laravel) on asennettu oikein kehitysympäristöösi.
 
-## About Laravel
+Alta löydät linkit ohjeistuksiin:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [PHP:n asennus](https://www.php.net/manual/en/install.php)
+- [Composerin asennus](https://getcomposer.org/download/)
+- [Xampin asennus](https://www.apachefriends.org/index.html)
+- [Node.js asennus](https://nodejs.org/)
+- [Laravelin asennus](https://laravel.com/docs/12.x/installation)
+- [Jetstreamin asennus](https://jetstream.laravel.com/installation.html)
+- [Gitin asennus ja käyttö](https://git-scm.com/)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Repositoryn kloonaus GitHubista
 
-## Learning Laravel
+1. Pidä huoli, että sinulla on tallessa alkuperäinen `.env`-tiedosto.  
+2. Avaa Git-terminaali kansiossa, johon haluat kloonata repositoryn.
+3. Kirjoita komento:
+    ```bash
+    git clone https://github.com/KimKiva/Uudenaika.git
+    ```
+4. Anna salasana tai tunnistaudu selaimen kautta GitHubiin.
+5. Odota, että kloonaus valmistuu ilman virheilmoituksia.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Muutosten työntö GitHubiin
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Avaa Git-terminaali kloonatussa kansiossa.
+2. Lisää muutokset:
+    ```bash
+    git add .
+    ```
+3. Tee commit:
+    ```bash
+    git commit -m "Yhteenveto tehdyistä muutoksista"
+    ```
+4. Pushaa muutokset:
+    ```bash
+    git push origin main
+    ```
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Laravel-ympäristön pystyttäminen
 
-### Premium Partners
+1. Käynnistä Xamppista `MySQL` ja `Apache` serverit.
+2. Avaa VSCode kloonatussa repositoryssa.
+3. Aja Powershellissä komento:
+    ```bash
+    .\initEnvironment.ps1
+    ```
+4. Jos tulee käyttöoikeusvirhe, aja:
+    ```bash
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+    .\initEnvironment.ps1
+    ```
+5. Kun skripti onnistuu, jatka:
+    ```bash
+    .\initConcurrent.ps1
+    ```
+6. Nyt sinulla on kehitysympäristö käynnissä.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## Datan luonti testausta varten
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+> **Huom:** Älä suorita tuotantotietokannassa!
 
-## Code of Conduct
+1. Varmista että `DatabaseSeeder.php` on konfiguroitu oikein.
+2. Aja komento:
+    ```bash
+    php artisan db:seed
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## Laravel-ympäristön pystyttäminen manuaalisesti (jos skripti ei toimi)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Käynnistä MySQL ja Apache Xamppista.
+2. Avaa VSCode kloonatussa repositoryssa.
+3. Kopioi .env-tiedosto:
+    ```bash
+    Copy-Item .env.example .env
+    ```
+4. Asenna riippuvuudet:
+    ```bash
+    composer install
+    ```
+5. Luo app-avain:
+    ```bash
+    php artisan key:generate
+    ```
+6. Asenna Node.js-paketit:
+    ```bash
+    npm install
+    ```
+7. Avaa kaksi terminaalia:
+    - Toisessa aja:
+        ```bash
+        npm run dev
+        ```
+    - Toisessa aja:
+        ```bash
+        php artisan serve
+        ```
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Linkkejä
+
+- [Laravelin viralliset dokumentit](https://laravel.com/docs/12.x/installation)
+- [Jetstream dokumentaatio](https://jetstream.laravel.com/installation.html)
+- [GitHub repo: Uudenaika](https://github.com/KimKiva/Uudenaika.git)
+- YouTube-videot:
+  - [Video 1](https://youtu.be/n04w2SzGr_U?si=j2PsWgbTrpEwX99M)
+  - [Video 2](https://youtu.be/-3Xz7tuKyMI?si=NQw1N2VKAu7fRtm1)
+  - [Video 3](https://youtu.be/qAP3hsFfWr8?si=zya6MIjk8uDQk8Bw)
+  - [Video 4](https://youtu.be/qZQmCfkmbNA?si=nfqr799MXbFB9TAW)
+  - [Video 5](https://youtu.be/HkdAHXoRtos?si=HvLNQLgRtLJ8Nefw)
+
+---
