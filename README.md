@@ -2,21 +2,23 @@
 
 > Huom! Tämän ohjeistuksen toimivuus edellyttää, että kaikki tarvittavat riippuvuudet, ympäristöt ja ohjelmistot (kuten PHP, Composer ja Laravel) on asennettu oikein kehitysympäristöösi.
 
-Alta löydät linkit ohjeistuksiin:
+> Koska aplikaatio käyttää Filamentin versiota 3, vaaditaan PHP versio 8.3 jonka voit asentaa [täältä](https://windows.php.net/download#php-8.3).
 
-- [PHP:n asennus](https://www.php.net/manual/en/install.php)
-- [Composerin asennus](https://getcomposer.org/download/)
-- [Xampin asennus](https://www.apachefriends.org/index.html)
-- [Node.js asennus](https://nodejs.org/)
-- [Laravelin asennus](https://laravel.com/docs/12.x/installation)
-- [Jetstreamin asennus](https://jetstream.laravel.com/installation.html)
-- [Gitin asennus ja käyttö](https://git-scm.com/)
+> Alta löydät linkit ohjeistuksiin:
+
+-   [PHP:n asennus](https://www.php.net/manual/en/install.php)
+-   [Composerin asennus](https://getcomposer.org/download/)
+-   [Xampin asennus](https://www.apachefriends.org/index.html)
+-   [Node.js asennus](https://nodejs.org/)
+-   [Laravelin asennus](https://laravel.com/docs/12.x/installation)
+-   [Jetstreamin asennus](https://jetstream.laravel.com/installation.html)
+-   [Gitin asennus ja käyttö](https://git-scm.com/)
 
 ---
 
 ## Repositoryn kloonaus GitHubista
 
-1. Pidä huoli, että sinulla on tallessa alkuperäinen `.env`-tiedosto.  
+1. Pidä huoli, että sinulla on tallessa alkuperäinen `.env`-tiedosto.
 2. Avaa Git-terminaali kansiossa, johon haluat kloonata repositoryn.
 3. Kirjoita komento:
     ```bash
@@ -112,14 +114,14 @@ Alta löydät linkit ohjeistuksiin:
 
 # Linkkejä
 
-- [Laravelin viralliset dokumentit](https://laravel.com/docs/12.x/installation)
-- [Jetstream dokumentaatio](https://jetstream.laravel.com/installation.html)
-- [GitHub repo: Uudenaika](https://github.com/KimKiva/Uudenaika.git)
-- YouTube-videot:
-  - [Video 1](https://youtu.be/n04w2SzGr_U?si=j2PsWgbTrpEwX99M)
-  - [Video 2](https://youtu.be/-3Xz7tuKyMI?si=NQw1N2VKAu7fRtm1)
-  - [Video 3](https://youtu.be/qAP3hsFfWr8?si=zya6MIjk8uDQk8Bw)
-  - [Video 4](https://youtu.be/qZQmCfkmbNA?si=nfqr799MXbFB9TAW)
-  - [Video 5](https://youtu.be/HkdAHXoRtos?si=HvLNQLgRtLJ8Nefw)
+-   [Laravelin viralliset dokumentit](https://laravel.com/docs/12.x/installation)
+-   [Jetstream dokumentaatio](https://jetstream.laravel.com/installation.html)
+-   [GitHub repo: Uudenaika](https://github.com/KimKiva/Uudenaika.git)
+-   YouTube-videot:
+    -   [Video 1](https://youtu.be/n04w2SzGr_U?si=j2PsWgbTrpEwX99M)
+    -   [Video 2](https://youtu.be/-3Xz7tuKyMI?si=NQw1N2VKAu7fRtm1)
+    -   [Video 3](https://youtu.be/qAP3hsFfWr8?si=zya6MIjk8uDQk8Bw)
+    -   [Video 4](https://youtu.be/qZQmCfkmbNA?si=nfqr799MXbFB9TAW)
+    -   [Video 5](https://youtu.be/HkdAHXoRtos?si=HvLNQLgRtLJ8Nefw)
 
 ---
