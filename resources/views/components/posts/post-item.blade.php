@@ -24,7 +24,7 @@
             </p>
             <div class="article-actions-bar mt-6 flex items-center justify-between">
                 <div class="flex items-center space-x-4">
-                    <span class="text-gray-500 text-sm">{{ $post->getReadingTime() }} min read</span>
+                    <span class="text-gray-500 text-sm">lukuaika {{ $post->getReadingTime() }} min</span>
                 </div>
                 <div>
                     <a class="flex items-center">
