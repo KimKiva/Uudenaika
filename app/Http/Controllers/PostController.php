@@ -12,8 +12,8 @@ class PostController extends Controller
             'posts.index',
             [
                 'categories' => Category::whereHas('posts', function ($query) {
-                        $query->published();
-                    })->take(10)->get()
+                    $query->published();
+                })->take(10)->get()
             ]
         );
     }

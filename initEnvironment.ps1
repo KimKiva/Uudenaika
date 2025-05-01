@@ -27,7 +27,11 @@ php artisan key:generate
 Write-Host "Ajetaan tietokantamigraatiot..."
 php artisan migrate
 
+# 4.5. Storage link
+Write-Host "Luodaan symbolinen linkki storage-kansioon..."
+php artisan storage:link
+
 # 5. NPM asennus ja build
 Write-Host "Asennetaan Node.js-paketit ja käännetään frontti..."
 npm install
-
+npm run build

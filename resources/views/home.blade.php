@@ -26,7 +26,7 @@
         <div class="mb-16">
             <h2 class="mt-16 mb-5 text-3xl text-blue-500 font-bold">Featured Posts</h2>
             <div class="w-full">
-                <div class="grid grid-cols-3 gap-10 w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     @foreach ($featuredPosts as $post)
                         <x-posts.postcard :post="$post" />
                     @endforeach
@@ -40,7 +40,7 @@
 
         <h2 class="mt-16 mb-5 text-3xl text-blue-500 font-bold">Latest Posts</h2>
         <div class="w-full mb-5">
-            <div class="grid grid-cols-3 gap-10 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach ($latestPosts as $post)
                     <x-posts.postcard :post="$post" />
                 @endforeach
