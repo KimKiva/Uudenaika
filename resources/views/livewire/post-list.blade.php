@@ -15,7 +15,7 @@
             @endif
 
             @if ($search)
-                Haetaan hakusanalla {{ $search }}
+                Haetaan hakusanalla <strong>{{ $search }}</strong>
                 @if ($this->activeCategory)
                     Kategoriasta
                 @endif
