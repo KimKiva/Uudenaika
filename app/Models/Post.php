@@ -48,12 +48,12 @@ class Post extends Model
         return $query->where('published_at', '<=', Carbon::now());
     }
 
-    public function scopeWithCategory($query, string $category)
+    // Post.php
+    public function scopeWithCategory($query, $slug)
     {
-        $query->whereHas('categories', function ($query) use ($category) {
-            $query->where('slug', $category);
-        });
+        return $query->whereHas('categories', fn($q) => $q->where('slug', $slug));
     }
+
 
     public function scopeFeatured($query)
     {

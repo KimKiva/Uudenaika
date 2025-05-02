@@ -18,8 +18,9 @@
             x-on:click="
         const params = new URLSearchParams(window.location.search);
         params.set('search', query);
-        params.delete('category');
+        // Älä poista category-parametria
         window.location.href = `${window.location.pathname}?${params.toString()}`;
+
     ">
             Hae </x-button>
 
