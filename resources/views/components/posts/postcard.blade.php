@@ -1,7 +1,7 @@
 @props(['post'])
 
 <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col h-full">
-    <a href="#">
+    <a href="{{ route('posts.show', $post->slug) }}">
         <img class="w-full rounded-xl mb-3" src="{{ $post->getThumbnailUrl() }}" alt="thumbnail">
     </a>
 
@@ -15,7 +15,7 @@
         <p class="text-gray-500 text-sm">{{ $post->published_at->format('d.m.Y') }}</p>
     </div>
 
-    <a href="#" class="text-lg font-bold text-gray-900 hover:underline">
+    <a href="{{ route('posts.show', $post->slug) }}" class="text-lg font-bold text-gray-900 hover:underline">
         {{ $post->title }}
     </a>
 </div>
