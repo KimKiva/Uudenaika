@@ -6,9 +6,8 @@
             {{ $post->title }}
         </h1>
         <div class="mt-2 flex justify-between items-center">
-            <div class="flex py-5 text-base items-center">
-                <img class="w-10 h-10 rounded-full mr-3" src="" alt="avatar">
-                <span class="mr-1">MN</span>
+            <div class="flex py-5 items-center">
+                <x-posts.author :author="$post->author" size="md" />
                 <span class="text-gray-500 text-sm">| lukuaika {{ $post->getReadingTime() }} min</span>
             </div>
             <div class="flex items-center">
@@ -32,15 +31,14 @@
             </div>
         </div>
 
-        <div class="article-content py-3 text-gray-800 text-lg text-justify">
+        <div class="article-content py-3 text-gray-800 prose text-lg text-justify">
             {!! $post->body !!}
         </div>
 
         <div class="flex items-center space-x-4 mt-10">
-            <a href="#" class="bg-blue-400 text-white rounded-xl px-3 py-1 text-base">
-                Tailwind</a>
-            <a href="#" class="bg-red-400 text-white rounded-xl px-3 py-1 text-base">
-                Laravel</a>
+            @foreach ($post->categories as $category)
+                <x-posts.category-badge :category="$category" />
+            @endforeach
         </div>
 
         <div class="mt-10 comments-box border-t border-gray-100 pt-10">
