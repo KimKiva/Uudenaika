@@ -1,4 +1,4 @@
-@props(['active'])
+@props(['active', 'navigate'])
 
 @php
     $classes =
@@ -7,6 +7,6 @@
             : 'inline-flex items center hover:text-blue-900 text-sm text-gray-500 sm:w-auto transition-transform hover:scale-110';
 @endphp
 
-<a wire:navigate {{ $attributes->merge(['class' => $classes]) }}>
+<a {{ $navigate ?? true ? 'wire:navigate' : '' }} {{ $attributes->merge(['class' => $classes]) }}>
     {{ $slot }}
 </a>
