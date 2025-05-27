@@ -1,3 +1,4 @@
+@props(['title'])
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ isset($title) ? $title . ' - ' : '' }} {{ config('app.name', '') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -26,8 +27,10 @@
 
     @yield('angel')
 
-    <main class="container mx-auto px-5 flex flex-grow">
-        {{  $slot   }}
+    <main class="min-h-screen flex items-center justify-center px-5 bg-gray-50">
+        <div class="container mx-auto">
+            {{ $slot }}
+        </div>
     </main>
 
     @include('layouts.partials.footer')

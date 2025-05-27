@@ -1,6 +1,11 @@
 <div x-data="{
     query: '{{ request('search', '') }}'
-}" id="search-box">
+}" 
+x-on:keyup.enter.window="const params = new URLSearchParams(window.location.search);
+        params.set('search', query);
+        // Älä poista category-parametria
+        window.location.href = `${window.location.pathname}?${params.toString()}`"
+id="search-box">
     <div>
         <h3 class="text-lg font-semibold text-gray-900 mb-3">Haku</h3>
         <div class="w-52 flex rounded-2xl bg-gray-100 py-2 px-3 mb-3 items-center">
