@@ -9,6 +9,10 @@
         'blue' => 'text-blue-800',
         'red' => 'text-red-800',
         'yellow' => 'text-yellow-800',
+        'orange' => 'text-orange-800',
+        'purple' => 'text-purple-800',
+        'pink' => 'text-pink-800',
+        'green' => 'text-green-800',
         default => 'text-gray-800',
     };
 
@@ -17,6 +21,10 @@
         'blue' => 'bg-blue-100',
         'red' => 'bg-red-100',
         'yellow' => 'bg-yellow-100',
+        'orange' => 'bg-orange-400',
+        'purple' => 'bg-purple-300',
+        'pink' => 'bg-pink-100',
+        'green' => 'bg-green-300',
         default => 'bg-gray-100',
     };
 @endphp

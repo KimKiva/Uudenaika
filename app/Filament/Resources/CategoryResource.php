@@ -6,6 +6,7 @@ use App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\FormsComponent;
@@ -29,7 +30,9 @@ class CategoryResource extends Resource
             ->schema([
                 TextInput::make('title')
                     ->lazy()
-                    ->required()->minLength(1)->maxLength(150)
+                    ->required()
+                    ->minLength(1)
+                    ->maxLength(150)
                     ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
                         if ($operation === 'edit') {
                             return;
@@ -37,9 +40,41 @@ class CategoryResource extends Resource
 
                         $set('slug', Str::slug($state));
                     }),
-                TextInput::make('slug')->required()->minLength(1)->unique(ignoreRecord: true),
-                TextInput::make('text_color')->nullable(),
-                TextInput::make('bg_color')->nullable(),
+
+                TextInput::make('slug')
+                    ->required()
+                    ->minLength(1)
+                    ->unique(ignoreRecord: true),
+
+                Select::make('text_color')
+                    ->label('Tekstin väri')
+                    ->options([
+                        'gray' => 'Harmaa',
+                        'red' => 'Punainen',
+                        'blue' => 'Sininen',
+                        'yellow' => 'Keltainen',
+                        'orange' => 'Oranssi',
+                        'purple' => 'Violetti',
+                        'pink' => 'Vaaleanpunainen',
+                        'green' => 'Vihreä',
+                    ])
+                    ->nullable()
+                    ->searchable(),
+
+                Select::make('bg_color')
+                    ->label('Taustaväri')
+                    ->options([
+                        'gray' => 'Harmaa',
+                        'red' => 'Punainen',
+                        'blue' => 'Sininen',
+                        'yellow' => 'Keltainen',
+                        'orange' => 'Oranssi',
+                        'purple' => 'Violetti',
+                        'pink' => 'Vaaleanpunainen',
+                        'green' => 'Vihreä',
+                    ])
+                    ->nullable()
+                    ->searchable(),
             ]);
     }
 
