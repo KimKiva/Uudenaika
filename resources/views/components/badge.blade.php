@@ -18,7 +18,7 @@
 
     $bgColor = match ($bgColor) {
         'gray' => 'bg-gray-100',
-        'blue' => 'bg-blue-100',
+        'blue' => 'bg-blue-200',
         'red' => 'bg-red-100',
         'yellow' => 'bg-yellow-100',
         'orange' => 'bg-orange-400',
