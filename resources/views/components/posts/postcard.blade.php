@@ -2,7 +2,7 @@
 
 <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col h-full">
     <a wire:navigate href="{{ route('posts.show', $post->slug) }}">
-        <img class="w-full rounded-xl mb-3" src="{{ $post->getThumbnailUrl() }}" alt="thumbnail">
+        <img class="w-100 rounded-xl mb-3" src="{{ $post->getThumbnailUrl() }}" alt="thumbnail">
     </a>
 
     <div class="flex items-center mb-2 gap-x-2">

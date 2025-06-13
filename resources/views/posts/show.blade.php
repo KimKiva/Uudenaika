@@ -2,9 +2,12 @@
 
     <article class="col-span-4 md:col-span-3 mt-10 mx-auto py-5 w-full" style="max-width:700px">
         <img class="w-full my-2 rounded-lg" src="{{ $post->getThumbnailUrl() }}" alt="thumbnail">
+        
         <h1 class="text-4xl font-bold text-left text-gray-800">
             {{ $post->title }}
         </h1>
+
+
         <div class="mt-2 flex justify-between items-center">
             <div class="flex py-5 items-center">
                 <x-posts.author :author="$post->author" size="md" />
@@ -31,6 +34,13 @@
             </div>
         </div>
 
+        @if ($post->video)
+            <video class="w-full my-4 rounded-lg" controls>
+                <source src="{{ Storage::url($post->video) }}" type="video/mp4">
+                Selaimesi ei tue videotoistoa.
+            </video>
+        @endif
+
         <div class="article-content py-3 text-gray-800 prose text-lg text-justify">
             {!! $post->body !!}
         </div>
@@ -41,7 +51,7 @@
             @endforeach
         </div>
 
-        <livewire:post-comments :key="'comments-' . $post->id" :$post/>
+        <livewire:post-comments :key="'comments-' . $post->id" :$post />
 
 
     </article>

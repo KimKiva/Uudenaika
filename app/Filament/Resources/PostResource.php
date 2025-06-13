@@ -35,40 +35,64 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                Section::make('Main Content')->schema(
-                    [
-                        TextInput::make('title')
-                            ->lazy()
-                            ->required()->minLength(1)->maxLength(150)
-                            ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
-                                if ($operation === 'edit') {
-                                    return;
-                                }
+                Section::make('Main Content')->schema([
+                    TextInput::make('title')
+                        ->lazy()
+                        ->required()
+                        ->minLength(1)
+                        ->maxLength(150)
+                        ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
+                            if ($operation === 'edit') {
+                                return;
+                            }
 
-                                $set('slug', Str::slug($state));
-                            }),
-                        TextInput::make('slug')->required()->minLength(1)->unique(ignoreRecord: true)->maxLength(150),
-                        RichEditor::make('body')
-                            ->required()
-                            ->fileAttachmentsDirectory('posts/images')->columnSpanFull()
-                    ]
-                )->columns(2),
-                Section::make('Meta')->schema(
-                    [
-                        FileUpload::make('image')->image()->directory('posts/thumbnails'),
-                        DateTimePicker::make('published_at')->nullable(),
-                        Checkbox::make('featured'),
-                        Select::make('user_id')
-                            ->relationship('author', 'name')
-                            ->searchable()
-                            ->required(),
-                        Select::make('categories')
-                            ->multiple()
-                            ->relationship('categories', 'title')
-                            ->searchable()
-                            ->required(),
-                    ]
-                ),
+                            $set('slug', Str::slug($state));
+                        }),
+
+                    TextInput::make('slug')
+                        ->required()
+                        ->minLength(1)
+                        ->unique(ignoreRecord: true)
+                        ->maxLength(150),
+
+                    RichEditor::make('body')
+                        ->required()
+                        ->fileAttachmentsDirectory('posts/images')
+                        ->columnSpanFull(),
+                ])->columns(2),
+
+                Section::make('Meta')->schema([
+                    FileUpload::make('image')
+                        ->label('Kuvake')
+                        ->image()
+                        ->directory('posts/thumbnails'),
+
+                    FileUpload::make('video')
+                        ->label('Video')
+                        ->acceptedFileTypes(['video/mp4', 'video/webm', 'video/ogg'])
+                        ->directory('posts/videos')
+                        ->nullable(),
+
+                    DateTimePicker::make('published_at')
+                        ->label('Julkaisuaika')
+                        ->nullable(),
+
+                    Checkbox::make('featured')
+                        ->label('Nostettu artikkeli'),
+
+                    Select::make('user_id')
+                        ->label('Kirjoittaja')
+                        ->relationship('author', 'name')
+                        ->searchable()
+                        ->required(),
+
+                    Select::make('categories')
+                        ->label('Kategoriat')
+                        ->multiple()
+                        ->relationship('categories', 'title')
+                        ->searchable()
+                        ->required(),
+                ]),
             ]);
     }
 

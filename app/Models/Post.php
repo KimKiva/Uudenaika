@@ -21,6 +21,7 @@ class Post extends Model
         'title',
         'slug',
         'image',
+        'video',
         'body',
         'published_at',
         'featured',
@@ -89,5 +90,38 @@ class Post extends Model
         $isUrl = str_contains($this->image, 'http');
 
         return ($isUrl) ? $this->image : Storage::disk('public')->url($this->image);
+    }
+
+    protected static function booted()
+    {
+        static::deleting(function ($post) {
+            // Poista video, jos löytyy
+            if ($post->video && Storage::disk('public')->exists($post->video)) {
+                Storage::disk('public')->delete($post->video);
+            }
+
+            // Poista kuva, jos löytyy
+            if ($post->image && Storage::disk('public')->exists($post->image)) {
+                Storage::disk('public')->delete($post->image);
+            }
+        });
+
+        static::updating(function ($post) {
+            // Tarkistetaan, jos video vaihtuu
+            if ($post->isDirty('video')) {
+                $original = $post->getOriginal('video');
+                if ($original && Storage::disk('public')->exists($original)) {
+                    Storage::disk('public')->delete($original);
+                }
+            }
+
+            // Tarkistetaan, jos kuva vaihtuu
+            if ($post->isDirty('image')) {
+                $original = $post->getOriginal('image');
+                if ($original && Storage::disk('public')->exists($original)) {
+                    Storage::disk('public')->delete($original);
+                }
+            }
+        });
     }
 }

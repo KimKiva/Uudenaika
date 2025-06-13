@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
 
             $table->string('image')->nullable();
+            $table->string('video')->nullable(); // <- lisätty videon sarake
+
             $table->string('title');
             $table->string('slug')->unique();
             $table->mediumText('body');
@@ -27,7 +29,6 @@ return new class extends Migration
             $table->boolean('featured')->default(false);
 
             $table->softDeletes();
-
             $table->timestamps();
         });
     }
